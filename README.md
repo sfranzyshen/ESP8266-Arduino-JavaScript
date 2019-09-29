@@ -1,14 +1,16 @@
-# mJS3 - a JS engine for embedded Arduino IDE systems
+### ESP8266-Arduino-JavaScript - JavaScript scripting engine in Arduino IDE for ESP8266
 
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
-mJS3 is a single-source-file JavaScript engine for Arduino IDE microcontrollers.
+ESP8266-Arduino-JavaScript is a Arduino IDE Library to implement a JavaScript engine for Arduino IDE ESP8266 microcontroller.
 
-## Demo Install
+## Library Install
 
-- Download (Clone) this github repository and copy the folder (as is no need to rename it) into your user Arduino Folder (C:\Users\USER\Documents\Arduino\mjs3-Arduino)
-- Load the sketch using the Arduino IDE menu (File->Sketchbook->mjs3-Arduino)
-- Build and Upload (*note: currently does not build on AVR platforms)
+- Download the latest github release zip file [ESP8266-Arduino-JavaScript-0.0.12](https://github.com/sfranzyshen/ESP8266-Arduino-JavaScript/releases/download/0.0.12/ESP8266-Arduino-JavaScript-0.0.12.zip)
+- In the Arduino IDE, navigate to Sketch > Include Library > Add .ZIP Library. At the top of the drop down list, select the option to "Add .ZIP Library''.
+- You will be prompted to select the library you would like to add. Navigate to the .zip file's location and open it.
+- Load the demo sketch using the Arduino IDE menu (File->Examples->ESP8266-Arduino-JavaScript->blink)
+- Build and Upload.
 
 ## Features
 
@@ -28,11 +30,10 @@ mJS3 is a single-source-file JavaScript engine for Arduino IDE microcontrollers.
 - mJS VM executes JS source directly, no AST/bytecode is generated
 - Simple FFI API to inject existing C functions into JS
 
-## Example - blinky in JavaScript on Arduino Platform
+## Example - blink in JavaScript on Arduino IDE ESP8266 Platform
 
 ```c++
-#define MJS_STRING_POOL_SIZE 200      // Buffer for all strings
-#include "mjs3-Arduino.c"                     
+#include <mjs3.h>                    
 
 extern void myDelay(int x) { 
   delay(x);
@@ -59,8 +60,8 @@ void loop() {
 ```
 
 ```
-Sketch uses 272668 bytes (26%) of program storage space. Maximum is 1044464 bytes.
-Global variables use 27812 bytes (33%) of dynamic memory, leaving 54108 bytes for local variables. Maximum is 81920 bytes.
+Sketch uses 271568 bytes (26%) of program storage space. Maximum is 1044464 bytes.
+Global variables use 27828 bytes (33%) of dynamic memory, leaving 54092 bytes for local variables. Maximum is 81920 bytes.
 ```
 
 ## Supported standard operations and constructs
